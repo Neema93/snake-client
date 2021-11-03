@@ -51,7 +51,7 @@ const handleUserInput = function () {
     // your code here
     setupInput();
   };
-module.exports = { connect };
+module.exports = { connect,setupInput };
 
 
 console.log("Connecting ...");
