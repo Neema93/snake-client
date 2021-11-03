@@ -1,5 +1,6 @@
-const myObject = require("./play.js");
-console.log(myObject.connect);
+const net = require("net");
+//const myObject = require("./play.js");
+//console.log(myObject.connect);
 const connect = function () {
     const conn = net.createConnection({
       Name: "NMP", 
@@ -20,18 +21,33 @@ const connect = function () {
     conn.on("Name",(Name)=>{
         console.log("Name:", Name)
     });
-    conn.on("Move: up" ,()=>{
-      console.log("move up one square (unless facing down)");
-    });
-    conn.on("Move: down" ,()=>{
-      console.log("move down one square (unless facing up)");
-    });
-    conn.on("Move: right" ,()=>{
-      console.log("move right one square (unless facing left)");
-    });
-    conn.on("Move: left" ,()=>{
-      console.log("move left one square (unless facing right)");
-    });
+    if (e.keyCode) keycode=e.keyCode;
+    else keycode=e.which;
+    ch=String.fromCharCode(keycode);
+    if(ch=='a' || ch=='A') { 
+      conn.on("Move: up" ,()=>{
+        console.log("move up one square (unless facing down)");
+      });;
+    }
+    else if(ch=='d' || ch=='D') {   
+        conn.on("Move: down" ,()=>{
+            console.log("move down one square (unless facing up)");
+          });
+    }
+    else if(ch=='w' || ch=='W') {
+        conn.on("Move: right" ,()=>{
+            console.log("move right one square (unless facing left)");
+          });
+    }
+    else if(ch=='s' || ch=='S') {
+        conn.on("Move: left" ,()=>{
+            console.log("move left one square (unless facing right)");
+         });
+    }
+    
+    
+    
+  
     setTimeout(() => {
       conn.end();
     },50);
