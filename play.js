@@ -20,6 +20,7 @@ const connect = function () {
     });
   return conn;
 };
+module.exports = { connect };
 
 
 console.log("Connecting ...");
