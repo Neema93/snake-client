@@ -21,7 +21,22 @@ const connect = function () {
     });
     conn.on("Name",(Name)=>{
         console.log("Name:", Name)
-    })
+    });
+    conn.on("Move: up" ,()=>{
+        console.log("move up one square (unless facing down)");
+    });
+    conn.on("Move: down" ,()=>{
+        console.log("move down one square (unless facing up)");
+    });
+    conn.on("Move: right" ,()=>{
+        console.log("move right one square (unless facing left)");
+    });
+    conn.on("Move: left" ,()=>{
+        console.log("move left one square (unless facing right)");
+    });
+    setTimeout(() => {
+        conn.end();
+    },50);
   return conn;
 };
 module.exports = { connect };
